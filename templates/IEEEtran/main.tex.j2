@@ -1,0 +1,39 @@
+\documentclass[journal]{IEEEtran}
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{algorithmic}
+\usepackage{textcomp}
+\usepackage{xcolor}
+
+\title{ {{ doc.title | default("Untitled Manuscript") }} }
+\author{%
+{% if doc.authors %}
+\IEEEauthorblockN{
+{% for author in doc.authors %}
+{{ author.name }}{% if not loop.last %} \\ {% endif %}
+{% endfor %}}
+{% else %}
+\IEEEauthorblockN{Anonymous}
+{% endif %}
+}
+
+\begin{document}
+\maketitle
+
+{% if doc.abstract %}
+\begin{abstract}
+{{ doc.abstract | default("") }}
+\end{abstract}
+{% endif %}
+
+{% for section in doc.sections or [] %}
+\section{ {{ section.name }} }
+{{ section.content }}
+
+{% endfor %}
+
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+
+\end{document}

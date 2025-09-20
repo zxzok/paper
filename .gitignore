@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+.env
+.manuweaver/
+node_modules/
+frontend/.next/
+frontend/out/
+.poetry/
+.vscode/
+.DS_Store
+*.log
+*.pdf
+*.aux
+*.bbl
+*.blg

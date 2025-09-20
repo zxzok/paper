@@ -1,0 +1,22 @@
+{
+  "templates": [
+    {
+      "identifier": "Generic-Article",
+      "display_name": "Generic Article",
+      "license": "CC-BY-4.0",
+      "description": "Single column research article template",
+      "engine": "pdflatex",
+      "citation_package": "natbib",
+      "assets_path": "Generic-Article"
+    },
+    {
+      "identifier": "IEEEtran",
+      "display_name": "IEEE Transactions",
+      "license": "IEEEtran LaTeX class (LPPL)",
+      "description": "Minimal IEEEtran example",
+      "engine": "pdflatex",
+      "citation_package": "natbib",
+      "assets_path": "IEEEtran"
+    }
+  ]
+}
