@@ -18,7 +18,7 @@ class StructureAnalyzer:
         self.client = client or LLMClient()
 
     async def analyze(self, markdown: str) -> StructureResult:
-        payload = analysis_prompt_v1.format(markdown=markdown)
+        payload = analysis_prompt_v1.replace("{markdown}", markdown)
         response = await self.client.complete_json(payload)
         if response:
             return StructureResult(normalized=response)
