@@ -1,8 +1,11 @@
+
 """Minimal async LLM client wrapper with local provider support."""
+
 from __future__ import annotations
 
 import asyncio
 import json
+
 import re
 from typing import Any, Dict
 
@@ -76,6 +79,7 @@ class LLMClient:
 
     @staticmethod
     def _parse_stub(prompt: str) -> Dict[str, Any] | None:
+
         try:
             parsed = json.loads(prompt)
             if isinstance(parsed, dict) and "mock_response" in parsed:

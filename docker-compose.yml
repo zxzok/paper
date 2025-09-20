@@ -14,11 +14,13 @@ services:
       - REDIS_URL=${REDIS_URL}
       - STORAGE_ROOT=/data/projects
       - ALLOWED_TEX_COMMANDS=${ALLOWED_TEX_COMMANDS}
+
       - LLM_PROVIDER=${LLM_PROVIDER:-stub}
       - OLLAMA_BASE_URL=${OLLAMA_BASE_URL:-http://host.docker.internal:11434}
       - OLLAMA_MODEL=${OLLAMA_MODEL:-llama3}
       - LMSTUDIO_BASE_URL=${LMSTUDIO_BASE_URL:-http://host.docker.internal:1234/v1}
       - LMSTUDIO_MODEL=${LMSTUDIO_MODEL:-llama3}
+
     volumes:
       - storage:/data
       - ./templates:/app/templates
@@ -36,11 +38,13 @@ services:
     environment:
       - REDIS_URL=${REDIS_URL}
       - STORAGE_ROOT=/data/projects
+
       - LLM_PROVIDER=${LLM_PROVIDER:-stub}
       - OLLAMA_BASE_URL=${OLLAMA_BASE_URL:-http://host.docker.internal:11434}
       - OLLAMA_MODEL=${OLLAMA_MODEL:-llama3}
       - LMSTUDIO_BASE_URL=${LMSTUDIO_BASE_URL:-http://host.docker.internal:1234/v1}
       - LMSTUDIO_MODEL=${LMSTUDIO_MODEL:-llama3}
+
     volumes:
       - storage:/data
       - ./templates:/app/templates
