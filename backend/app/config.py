@@ -57,7 +57,14 @@ class Settings(BaseModel):
                 continue
             overrides[field_name] = value
 
-        return cls(**overrides)
+
+
+    llm_provider: str = Field("stub", env="LLM_PROVIDER")
+    ollama_base_url: str = Field("http://localhost:11434", env="OLLAMA_BASE_URL")
+    ollama_model: str = Field("llama3", env="OLLAMA_MODEL")
+    lmstudio_base_url: str = Field("http://localhost:1234/v1", env="LMSTUDIO_BASE_URL")
+    lmstudio_model: str = Field("llama3", env="LMSTUDIO_MODEL")
+
 
 
 @lru_cache(maxsize=1)
