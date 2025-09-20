@@ -46,7 +46,12 @@ Key variables:
 - `REDIS_URL` – Celery broker/backend.
 - `STORAGE_ROOT` – Persistent project storage directory.
 - `ALLOWED_TEX_COMMANDS` – Whitelisted LaTeX commands after security filtering.
-- `NEXT_PUBLIC_API_BASE` – Frontend-to-backend base URL.
+
+- `LLM_PROVIDER` – `stub` (default), `ollama`, or `lmstudio` to select the inference backend.
+- `OLLAMA_BASE_URL` / `OLLAMA_MODEL` – Endpoint and model name when using an Ollama runtime.
+- `LMSTUDIO_BASE_URL` / `LMSTUDIO_MODEL` – Endpoint and model when connecting to LM Studio's OpenAI-compatible server.
+
+
 
 ### Docker Compose Deployment
 
@@ -154,6 +159,7 @@ make test
 | Citation search returns no DOI | Verify API keys/rate limits and inspect `needs_review` flags in the UI. |
 | SSE stream disconnects | Confirm Redis and Celery workers are running; logs fall back to stored job history on reconnect. |
 | Template compilation errors | Check `main.tex` for unsupported packages, review `Job Logs`, and adjust template metadata. |
+
 
 ## Academic Responsibility Statement
 

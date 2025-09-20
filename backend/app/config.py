@@ -29,9 +29,13 @@ class Settings(BaseSettings):
     allowed_tex_commands: str = Field("\\usepackage,\\begin,\\end,\\cite,\\citep,\\citet,\\parencite,\\ref,\\label", env="ALLOWED_TEX_COMMANDS")
     texlive_profile: str | None = Field(None, env="TEXLIVE_PROFILE")
 
-    class Config:
-        env_file = ".env"
-        env_file_encoding = "utf-8"
+
+    llm_provider: str = Field("stub", env="LLM_PROVIDER")
+    ollama_base_url: str = Field("http://localhost:11434", env="OLLAMA_BASE_URL")
+    ollama_model: str = Field("llama3", env="OLLAMA_MODEL")
+    lmstudio_base_url: str = Field("http://localhost:1234/v1", env="LMSTUDIO_BASE_URL")
+    lmstudio_model: str = Field("llama3", env="LMSTUDIO_MODEL")
+
 
 
 @lru_cache(maxsize=1)
