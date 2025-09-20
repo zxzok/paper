@@ -39,7 +39,9 @@ class ReferenceRetriever:
                 existing = merged.get(target_key)
                 reference = self._record_to_reference(record)
                 if existing:
-                    existing.score = max(filter(None, [existing.score, record.get("score")]))
+                    scores = [s for s in (existing.score, record.get("score")) if s is not None]
+                    if scores:
+                        existing.score = max(scores)
                     existing.source = ",".join(sorted(set(filter(None, [existing.source, record.get("source")]))))
                     if record.get("doi") and not existing.doi:
                         existing.doi = record.get("doi")
